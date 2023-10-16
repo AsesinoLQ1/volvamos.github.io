@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            text-align: center;
+        }
+        #message {
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        #buttons {
+            margin-top: 20px;
+        }
+        #button1, #button2 {
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">
+        <p>¿Quieres volver conmigo :C?</p>
+        <p>Prometo no fallarte otra vez</p>
+    </div>
+    <div id="buttons">
+        <button id="button1" onclick="showResponse()">Por supuesto</button>
+        <button id="button2" onclick="moveButton2()">No</button>
+    </div>
+    <p id="responseText" style="display: none;">Sabía que dirías que sí ;D</p>
+
+    <script>
+        function moveButton2() {
+            const button2 = document.getElementById('button2');
+            const maxX = window.innerWidth - button2.clientWidth;
+            const maxY = window.innerHeight - button2.clientHeight;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            button2.style.position = 'absolute';
+            button2.style.left = `${randomX}px`;
+            button2.style.top = `${randomY}px`;
+        }
+
+        function showResponse() {
+            const responseText = document.getElementById('responseText');
+            responseText.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
